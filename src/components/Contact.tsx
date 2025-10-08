@@ -88,9 +88,7 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-semibold text-primary dark:text-accent mb-4">Get in Touch</h3>
               <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
-                📧 emmanuelilesanmi36@gmail.com<br />
-                📞 +1 (506) 721-6489<br />
-                🔗 <a href="https://linkedin.com/in/emmanuelilesanmi" className="text-accent hover:underline">linkedin.com/in/emmanuelilesanmi</a>
+                📧 emmanuelilesanmi36@gmail.com
               </p>
             </div>
           </div>

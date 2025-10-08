@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 30 }}
@@ -45,8 +47,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-secondary/20 mt-8 pt-8 text-center">
-          <p className="text-secondary/60">
-            © 2024 Emmanuel Ilesanmi. All rights reserved.
+          <p className="text-secondary/60 text-sm">
+            © 2015 - {currentYear} Emmanuel Ilesanmi. All Rights Reserved.
           </p>
         </div>
       </div>

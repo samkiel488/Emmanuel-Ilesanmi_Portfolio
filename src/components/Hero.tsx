@@ -2,37 +2,13 @@
 
 import Image from "next/image";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center bg-secondary dark:bg-[#001f3f]">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-12 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-primary dark:text-accent mb-6">
-              IT Audit | IT Risk Management | Cybersecurity Assurance
-            </h1>
-            <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 mb-8 leading-relaxed">
-              Safeguarding organizational assets through risk-based audit planning, IT controls evaluation, and cybersecurity assurance.
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="/Emmanuel Ilesanmi - IT Audit - Master_Canada.docx"
-                download
-                className="bg-accent text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-accent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Download Resume
-              </a>
-              <Link
-                to="contact"
-                smooth={true}
-                duration={500}
-                className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
-              >
-                Contact Me
-              </Link>
-            </div>
-          </div>
+      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24 py-20">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="flex justify-center">
             <Image
               src="/profile_pic.jpeg"
@@ -40,8 +16,45 @@ const Hero = () => {
               width={300}
               height={300}
               priority
-              className="rounded-full shadow-lg"
+              className="object-cover rounded shadow-md shadow-gray-700 dark:shadow-gray-300"
             />
+          </div>
+          <div className="text-center md:text-left">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-accent mb-2"
+            >
+              IT Audit & Assurance
+            </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary dark:text-accent mb-2"
+            >
+              ICFR/SOX Audit
+            </motion.h2>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-primary dark:text-accent mb-6"
+            >
+              Risk Management & Cybersecurity
+            </motion.h3>
+            <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 mb-8 leading-relaxed">
+              Safeguarding organizational assets through risk-based audit planning, IT controls evaluation, and cybersecurity assurance.
+            </p>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+            >
+              Contact Me
+            </Link>
           </div>
         </div>
       </div>
