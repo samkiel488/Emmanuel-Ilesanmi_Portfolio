@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-secondary/20 mt-8 pt-8 text-center">
           <p className="text-secondary/60">
-            © {new Date().getFullYear()} Emmanuel Ilesanmi. All rights reserved.
+            © 2024 Emmanuel Ilesanmi. All rights reserved.
           </p>
         </div>
       </div>

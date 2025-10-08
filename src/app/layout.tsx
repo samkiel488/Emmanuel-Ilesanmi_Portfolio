@@ -20,18 +20,20 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProviderWrapper } from "../components/ThemeProviderWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-        <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="en" className="transition-colors duration-300" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <ThemeProviderWrapper>
           {children}
-        </body>
-      </ThemeProvider>
+        </ThemeProviderWrapper>
+      </body>
     </html>
   );
 }

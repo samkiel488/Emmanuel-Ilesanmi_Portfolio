@@ -1,30 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Shield, CheckCircle, Lock, Search, BarChart, Cloud, FileText, Users, Brain, MessageSquare, TrendingUp, BookOpen } from "lucide-react";
 
 const Skills = () => {
   const skills = [
-    { name: "IT Audit & Assurance", level: "Expert" },
-    { name: "Risk Management", level: "Expert" },
-    { name: "Cybersecurity", level: "Advanced" },
-    { name: "COBIT Framework", level: "Advanced" },
-    { name: "NIST Standards", level: "Advanced" },
-    { name: "ISO 27001", level: "Advanced" },
-    { name: "Data Analytics", level: "Intermediate" },
-    { name: "Compliance Testing", level: "Expert" },
-    { name: "IT Governance", level: "Advanced" },
-    { name: "Control Evaluation", level: "Expert" }
+    { name: "IT General Controls (ITGC) & IT Application Controls (ITAC)", icon: Shield },
+    { name: "SOX/ICFR Testing & Compliance", icon: CheckCircle },
+    { name: "IT Risk Management & Governance (COBIT, COSO, ISO 27001, ITIL, PCI DSS)", icon: Lock },
+    { name: "Vulnerability Assessment Tools (Nessus, Qualys, Acunetix, Burp Suite, OWASP Zap)", icon: Search },
+    { name: "GRC Tools (Archer, PowerBI, ACL, Alteryx)", icon: BarChart },
+    { name: "Cloud Security & DevOps Assurance", icon: Cloud },
+    { name: "Fraud Investigation & Data Analytics", icon: FileText },
+    { name: "Leadership & Team Mentoring", icon: Users },
+    { name: "Critical Thinking", icon: Brain },
+    { name: "Effective Communication", icon: MessageSquare },
+    { name: "Analytical & Interpersonal Skills", icon: TrendingUp },
+    { name: "Commitment to Continuous Learning", icon: BookOpen }
   ];
-
-  const getLevelWidth = (level: string) => {
-    switch (level) {
-      case "Expert": return "w-full";
-      case "Advanced": return "w-4/5";
-      case "Intermediate": return "w-3/5";
-      case "Beginner": return "w-2/5";
-      default: return "w-1/2";
-    }
-  };
 
   return (
     <motion.section
@@ -47,18 +40,9 @@ const Skills = () => {
               viewport={{ once: true }}
               className="bg-secondary dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="flex justify-between items-center mb-3">
+              <div className="flex items-center mb-3">
+                <skill.icon className="w-6 h-6 text-accent mr-3" />
                 <h3 className="text-lg font-semibold text-primary dark:text-accent">{skill.name}</h3>
-                <span className="text-sm text-accent font-medium">{skill.level}</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: getLevelWidth(skill.level) }}
-                  transition={{ duration: 1, delay: 0.2 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-accent h-2 rounded-full"
-                />
               </div>
             </motion.div>
           ))}
