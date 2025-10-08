@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import { Link } from "react-scroll";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,10 +14,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
 
   return (
     <nav
@@ -44,13 +39,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle Dark Mode"
-            className="p-2 rounded-full bg-accent text-primary hover:bg-primary hover:text-accent transition"
-          >
-            {resolvedTheme === "dark" ? "☀️" : "🌙"}
-          </button>
+          <ThemeToggle />
         </div>
       </div>
     </nav>
