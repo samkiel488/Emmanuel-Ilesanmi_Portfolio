@@ -29,6 +29,6 @@
 - [x] Ensure responsive design
 
 ## Testing and Deployment
-- [ ] Run npm install and npm run dev for local testing
-- [ ] Verify responsiveness and animations
+- [x] Run npm install and npm run dev for local testing
+- [x] Verify responsiveness and animations
 - [ ] Prepare for Vercel deployment
