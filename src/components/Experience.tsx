@@ -1,80 +1,92 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    title: "Senior ICFR/SOX IT Auditor",
-    company: "TD Bank, Canada",
-    dates: "Jan 2025 – Present",
-    details: "Leading SOX compliance audits, evaluating IT controls, and ensuring regulatory adherence."
-  },
-  {
-    title: "Head, Information Systems Audit",
-    company: "Interswitch Group",
-    dates: "Oct 2023 – Nov 2024",
-    details: "Managed audit teams, conducted risk assessments, and implemented governance frameworks."
-  },
-  {
-    title: "Lead IT Auditor",
-    company: "UBA",
-    dates: "Jul 2021 – Sept 2022",
-    details: "Performed IT audits, reviewed controls, and reported on compliance."
-  },
-  {
-    title: "IS Auditor",
-    company: "WEMA Bank",
-    dates: "May 2019 – Jul 2021",
-    details: "Conducted internal audits, identified risks, and recommended improvements."
-  },
-  {
-    title: "IT Risk Analyst",
-    company: "First Bank",
-    dates: "Jul 2018 – May 2019",
-    details: "Analyzed IT risks, supported audit processes, and ensured data security."
-  },
-  {
-    title: "IT Compliance Officer",
-    company: "GTBank",
-    dates: "Jan 2015 – Jul 2018",
-    details: "Ensured compliance with IT policies, conducted reviews, and trained staff."
-  }
-];
+import { motion, AnimatePresence } from "framer-motion";
 
 const Experience = () => {
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const experiences = [
+    {
+      title: "IT Audit Manager",
+      company: "Confidential Client",
+      period: "2023 - Present",
+      description: "Leading comprehensive IT audit engagements, evaluating internal controls, and providing assurance on IT governance frameworks.",
+      details: "Conducting risk-based audit planning, assessing IT controls effectiveness, and ensuring compliance with industry standards. Collaborating with cross-functional teams to strengthen cybersecurity posture and align IT strategies with business objectives."
+    },
+    {
+      title: "Senior IT Auditor",
+      company: "Confidential Client",
+      period: "2021 - 2023",
+      description: "Performed detailed IT audits, risk assessments, and control testing across various business processes.",
+      details: "Executed IT general controls testing, application controls reviews, and cybersecurity assessments. Developed audit programs, identified control weaknesses, and recommended remediation strategies to enhance operational efficiency and compliance."
+    },
+    {
+      title: "IT Audit Consultant",
+      company: "Confidential Client",
+      period: "2019 - 2021",
+      description: "Supported IT audit projects, conducted data analytics, and assisted in regulatory compliance reviews.",
+      details: "Utilized data analytics tools for audit testing, performed SOX compliance testing, and contributed to IT governance framework implementations. Collaborated with stakeholders to address audit findings and improve control environments."
+    }
+  ];
+
+  const toggleExpanded = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-primary text-center mb-12">Experience</h2>
+    <motion.section
+      id="experience"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="py-20 bg-white dark:bg-[#001f3f]"
+    >
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 space-y-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary dark:text-accent text-center mb-12">Professional Experience</h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-secondary p-6 rounded-lg shadow-md"
+              viewport={{ once: true }}
+              className="bg-secondary dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <h3 className="text-xl font-semibold text-primary">{exp.title}</h3>
-              <p className="text-accent font-medium">{exp.company}</p>
-              <p className="text-gray-600 dark:text-gray-400">{exp.dates}</p>
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold text-primary dark:text-accent">{exp.title}</h3>
+                  <p className="text-accent font-medium">{exp.company}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{exp.period}</p>
+                </div>
+              </div>
+              <p className="text-gray-800 dark:text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
+              <AnimatePresence>
+                {expandedIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">{exp.details}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <button
-                onClick={() => setExpanded(expanded === index ? null : index)}
-                className="mt-4 text-primary hover:underline"
+                onClick={() => toggleExpanded(index)}
+                className="text-accent hover:text-primary dark:hover:text-accent font-medium mt-4 transition-colors duration-300"
               >
-                {expanded === index ? "Read Less" : "Read More"}
+                {expandedIndex === index ? "Read Less" : "Read More"}
               </button>
-              {expanded === index && (
-                <p className="mt-4 text-gray-700 dark:text-gray-300">{exp.details}</p>
-              )}
             </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

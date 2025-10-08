@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const Education = () => {
   const education = [
     {
@@ -13,20 +17,34 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-primary text-center mb-12">Education</h2>
+    <motion.section
+      id="education"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="py-20 bg-white dark:bg-[#001f3f]"
+    >
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 space-y-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary dark:text-accent text-center mb-12">Education</h2>
         <div className="space-y-8">
           {education.map((edu, index) => (
-            <div key={index} className="bg-secondary p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-primary">{edu.degree}</h3>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-secondary dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <h3 className="text-xl font-semibold text-primary dark:text-accent">{edu.degree}</h3>
               <p className="text-accent font-medium">{edu.institution}</p>
               <p className="text-gray-600 dark:text-gray-400">{edu.year}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -19,41 +19,51 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-primary text-center mb-12">Contact Me</h2>
+    <motion.section
+      id="contact"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="py-20 bg-white dark:bg-[#001f3f]"
+    >
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 space-y-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary dark:text-accent text-center mb-12">Contact Me</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                <label className="block text-gray-800 dark:text-gray-300 mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary"
+                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
+                  placeholder="Your full name"
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                <label className="block text-gray-800 dark:text-gray-300 mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary"
+                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
+                  placeholder="your.email@example.com"
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                <label className="block text-gray-800 dark:text-gray-300 mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary h-32"
+                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100 h-32"
+                  placeholder="Tell me about your project or inquiry..."
                   required
                 />
               </div>
@@ -76,8 +86,8 @@ const Contact = () => {
           </div>
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-primary mb-4">Get in Touch</h3>
-              <p className="text-gray-700 dark:text-gray-300">
+              <h3 className="text-xl font-semibold text-primary dark:text-accent mb-4">Get in Touch</h3>
+              <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
                 📧 emmanuelilesanmi36@gmail.com<br />
                 📞 +1 (506) 721-6489<br />
                 🔗 <a href="https://linkedin.com/in/emmanuelilesanmi" className="text-accent hover:underline">linkedin.com/in/emmanuelilesanmi</a>
@@ -86,7 +96,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
