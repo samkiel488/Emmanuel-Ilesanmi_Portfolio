@@ -23,12 +23,12 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-shadow duration-300 ${
-        isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-primary shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold text-primary">
+          <div className="text-xl font-bold text-secondary">
             Emmanuel Ilesanmi
           </div>
           <div className="hidden md:flex space-x-8">
@@ -38,7 +38,7 @@ const Navbar = () => {
                 to={item.toLowerCase()}
                 smooth={true}
                 duration={500}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary cursor-pointer"
+                className="text-secondary hover:text-accent cursor-pointer"
               >
                 {item}
               </Link>
@@ -46,7 +46,8 @@ const Navbar = () => {
           </div>
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+            aria-label="Toggle Dark Mode"
+            className="p-2 rounded-full bg-accent text-primary hover:bg-primary hover:text-accent transition"
           >
             {theme === "dark" ? "☀️" : "🌙"}
           </button>

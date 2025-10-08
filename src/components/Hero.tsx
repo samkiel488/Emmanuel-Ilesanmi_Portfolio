@@ -34,13 +34,14 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <Image
-              src="/profile_pic.jpeg"
-              alt="Emmanuel Ilesanmi"
-              width={300}
-              height={300}
-              className="rounded-full shadow-lg"
-            />
+              <Image
+                src="/profile_pic.jpeg"
+                alt="Emmanuel Ilesanmi"
+                width={300}
+                height={300}
+                priority
+                className="rounded-full shadow-lg"
+              />
           </div>
         </div>
       </div>
