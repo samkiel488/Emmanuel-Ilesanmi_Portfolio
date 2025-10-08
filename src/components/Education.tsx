@@ -5,16 +5,14 @@ import { motion } from "framer-motion";
 const Education = () => {
   const education = [
     {
-      degree: "Master of Science in Information Technology",
-      institution: "University of New Brunswick",
-      year: "2018 - 2020",
-      details: "Specialized in IT Security, Data Analytics, and Enterprise Systems. Graduated with distinction."
+      degree: "Master of Information Technology (MIT)",
+      institution: "National Open University of Nigeria",
+      year: "2024"
     },
     {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University of Lagos",
-      year: "2014 - 2018",
-      details: "Focused on software development, algorithms, and computer systems. Active in cybersecurity research projects."
+      degree: "Bachelor of Engineering, Electrical & Electronics",
+      institution: "Modibbo Adama University of Technology (MAUTECH), Nigeria",
+      year: "2013"
     }
   ];
 
@@ -41,8 +39,7 @@ const Education = () => {
             >
               <h3 className="text-xl font-semibold text-primary dark:text-accent mb-2">{edu.degree}</h3>
               <p className="text-accent font-medium mb-1">{edu.institution}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{edu.year}</p>
-              <p className="text-gray-800 dark:text-gray-300 leading-relaxed">{edu.details}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{edu.year}</p>
             </motion.div>
           ))}
         </div>
