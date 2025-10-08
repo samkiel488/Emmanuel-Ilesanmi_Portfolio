@@ -5,40 +5,53 @@ import { motion } from "framer-motion";
 const Certifications = () => {
   const certifications = [
     {
-      name: "Certified Information Systems Auditor (CISA)",
-      issuer: "ISACA",
-      year: "2023",
-      description: "Global certification for IT audit, control, and security professionals."
-    },
-    {
-      name: "Certified in Risk and Information Systems Control (CRISC)",
-      issuer: "ISACA",
-      year: "2022",
-      description: "Certification focused on IT risk management and control."
-    },
-    {
       name: "Certified Information Systems Security Professional (CISSP)",
       issuer: "ISC²",
-      year: "2021",
+      year: "2023",
+      icon: "🛡️",
       description: "Leading certification for information security professionals."
     },
     {
-      name: "Certified Internal Auditor (CIA)",
-      issuer: "IIA",
-      year: "2020",
-      description: "Global standard for internal auditing professionals."
-    },
-    {
-      name: "Certified Fraud Examiner (CFE)",
-      issuer: "ACFE",
-      year: "2019",
-      description: "Certification for fraud prevention, detection, and deterrence."
-    },
-    {
-      name: "Project Management Professional (PMP)",
-      issuer: "PMI",
+      name: "Certified Information Systems Auditor (CISA)",
+      issuer: "ISACA",
       year: "2018",
-      description: "Globally recognized certification for project management."
+      icon: "🧾",
+      description: "Global certification for IT audit, control, and security professionals."
+    },
+    {
+      name: "ISO 27001 Lead Auditor",
+      issuer: "N/A",
+      year: "2019",
+      icon: "📜",
+      description: "Certification for auditing information security management systems."
+    },
+    {
+      name: "PCI Internal Security Assessor",
+      issuer: "PCI SSC",
+      year: "2024",
+      icon: "💳",
+      description: "Certification for assessing PCI DSS compliance."
+    },
+    {
+      name: "Lean Six Sigma Yellow Belt",
+      issuer: "IASSC",
+      year: "2022",
+      icon: "🎯",
+      description: "Certification for process improvement methodologies."
+    },
+    {
+      name: "COBIT 5 Foundation",
+      issuer: "PeopleCert",
+      year: "2018",
+      icon: "⚙️",
+      description: "Certification for IT governance and management framework."
+    },
+    {
+      name: "ITIL Foundation",
+      issuer: "N/A",
+      year: "2015",
+      icon: "🔧",
+      description: "Certification for IT service management best practices."
     }
   ];
 
@@ -63,7 +76,10 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              <h3 className="text-lg font-semibold text-primary dark:text-accent mb-2">{cert.name}</h3>
+              <div className="flex items-center mb-2">
+                <span className="text-2xl mr-2">{cert.icon}</span>
+                <h3 className="text-lg font-semibold text-primary dark:text-accent">{cert.name}</h3>
+              </div>
               <p className="text-accent font-medium mb-1">{cert.issuer}</p>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{cert.year}</p>
               <p className="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">{cert.description}</p>

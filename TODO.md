@@ -3,9 +3,9 @@
 ## Steps to Complete
 - [x] Edit Skills.tsx: Replace skills array with Core Technical Skills and Behavioural Competencies, add icons from lucide-react, remove levels and progress bars.
 - [x] Edit Experience.tsx: Replace experiences array with 7 CV entries, add icons, keep Read More/Less.
-- [ ] Edit Certifications.tsx: Replace certifications array with 7 CV entries, add icons to cards.
-- [ ] Edit Awards.tsx: Replace awards array with 2 CV awards and memberships.
-- [ ] Run npm run dev to verify compilation and layout.
+- [x] Edit Certifications.tsx: Replace certifications array with 7 CV entries, add icons to cards.
+- [x] Edit Awards.tsx: Replace awards array with 2 CV awards and memberships.
+- [x] Run npm run dev to verify compilation and layout.
 
 ## Information Gathered
 - **Skills.tsx**: Current structure uses a grid of skill cards with name, level, and progress bar. Filler skills include "IT Audit & Assurance", etc. Need to replace with exact Core Technical Skills and Behavioural Competencies from CV, adding relevant icons (Shield, Server, Lock, Brain, Users, etc.) from Lucide-React.

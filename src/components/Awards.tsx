@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 const Awards = () => {
   const awards = [
     {
-      title: "Outstanding IT Audit Project",
-      issuer: "Confidential Client",
-      year: "2022",
-      description: "Recognized for leading a successful IT audit project that significantly improved risk management."
+      title: "SOARS Award",
+      issuer: "Interswitch Group Ltd",
+      year: "Dec 2023",
+      description: "Recognized for outstanding leadership and achievement in IT Audit."
     },
     {
-      title: "Cybersecurity Excellence Award",
-      issuer: "Confidential Client",
-      year: "2021",
-      description: "Awarded for exceptional contributions to cybersecurity assurance and control improvements."
+      title: "Commendation Letter",
+      issuer: "Guaranty Trust Bank",
+      year: "2017",
+      description: "Acknowledged for successful Data Centre Migration project."
     },
     {
-      title: "Employee of the Year",
-      issuer: "Confidential Client",
-      year: "2020",
-      description: "Honored for outstanding performance and dedication to IT audit and risk management."
+      title: "Memberships",
+      issuer: "",
+      year: "",
+      description: "ISC² | ISACA | Institute of Internal Auditors (Lagos & Atlantic Canada Chapters)"
     }
   ];
 
