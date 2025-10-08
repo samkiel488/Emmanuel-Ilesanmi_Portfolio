@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center bg-secondary dark:bg-[#001f3f]">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-20">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-primary dark:text-accent mb-6">

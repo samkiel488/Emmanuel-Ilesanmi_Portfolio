@@ -27,8 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased transition-colors duration-300 bg-white text-gray-800 dark:bg-[#001f3f] dark:text-gray-100`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className={`${inter.variable} font-sans antialiased transition-colors duration-300 bg-[#001f3f] text-gray-100 dark:bg-[#001f3f] dark:text-gray-100`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

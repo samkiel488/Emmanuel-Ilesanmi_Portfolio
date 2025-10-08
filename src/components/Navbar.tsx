@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -49,7 +49,7 @@ const Navbar = () => {
             aria-label="Toggle Dark Mode"
             className="p-2 rounded-full bg-accent text-primary hover:bg-primary hover:text-accent transition"
           >
-            {theme === "dark" ? "☀️" : "🌙"}
+            {resolvedTheme === "dark" ? "☀️" : "🌙"}
           </button>
         </div>
       </div>
