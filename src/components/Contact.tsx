@@ -88,7 +88,10 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-semibold text-primary dark:text-accent mb-4">Get in Touch</h3>
               <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
-                📧 emmanuelilesanmi36@gmail.com
+                <a href="mailto:emmanuelilesanmi36@gmail.com" className="flex items-center space-x-2 text-accent hover:underline">
+                  <span>📧</span>
+                  <span>Email</span>
+                </a>
               </p>
             </div>
           </div>

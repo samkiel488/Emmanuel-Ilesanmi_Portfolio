@@ -8,18 +8,8 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center bg-secondary dark:bg-[#001f3f]">
       <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24 py-20">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-          <div className="flex justify-center">
-            <Image
-              src="/profile_pic.jpeg"
-              alt="Emmanuel Ilesanmi"
-              width={300}
-              height={300}
-              priority
-              className="object-cover rounded shadow-md shadow-gray-700 dark:shadow-gray-300"
-            />
-          </div>
-          <div className="text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-start justify-center gap-12">
+          <div className="text-center md:text-left flex-1">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
