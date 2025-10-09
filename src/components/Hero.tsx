@@ -16,35 +16,42 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-accent mb-2"
             >
-              IT Audit & Assurance
+              IT Audit
             </motion.h1>
-            <motion.h2
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary dark:text-accent mb-2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-accent mb-2"
             >
-              ICFR/SOX Audit
-            </motion.h2>
-            <motion.h3
+              IT Risk Management
+            </motion.h1>
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-primary dark:text-accent mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-accent mb-2"
             >
-              Risk Management & Cybersecurity
-            </motion.h3>
-            <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 mb-8 leading-relaxed">
-              Safeguarding organizational assets through risk-based audit planning, IT controls evaluation, and cybersecurity assurance.
-            </p>
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+              Cybersecurity Assurance
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-accent mb-2"
             >
-              Contact Me
-            </Link>
+              ICFR/SOX Audit
+            </motion.h1>
+          </div>
+          <div className="flex justify-center md:justify-end">
+            <Image
+              src="/profile_pic.jpeg"
+              alt="Emmanuel Ilesanmi"
+              width={300}
+              height={300}
+              priority
+              className="rounded-full shadow-lg"
+            />
           </div>
         </div>
       </div>

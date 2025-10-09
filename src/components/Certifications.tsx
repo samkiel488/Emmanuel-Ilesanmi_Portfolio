@@ -1,51 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Certifications = () => {
   const certifications = [
     {
-      name: "Certified Information Systems Auditor (CISA)",
-      issuer: "ISACA",
-      year: "2018",
-      logo: "isaca-cisa.png"
+      name: "Payment Card Industry (PCI) Internal Security Assessor (ISA)",
+      issuer: "PCI Sec. Stand. Council, LLC, US",
+      year: "2024"
     },
     {
-      name: "Certified in Risk and Information Systems Control (CRISC)",
-      issuer: "ISACA",
-      year: "2023",
-      logo: "isaca-crisc.png"
+      name: "Information System Security Professional (CISSP)",
+      issuer: "ISC2 United States",
+      year: "2023"
     },
     {
-      name: "Certified Information Systems Security Professional (CISSP)",
-      issuer: "ISC²",
-      year: "2023",
-      logo: "isc2-cissp.png"
+      name: "Information Systems Auditor (CISA)",
+      issuer: "ISACA, United States",
+      year: "2018"
     },
     {
-      name: "Certified Internal Auditor (CIA)",
-      issuer: "The IIA",
-      year: "2018",
-      logo: "iia-cia.png"
+      name: "ISO 27001 (ISMS) Lead Auditor",
+      issuer: "",
+      year: "2019"
     },
     {
-      name: "Certified Fraud Examiner (CFE)",
-      issuer: "ACFE",
-      year: "2023",
-      logo: "acfe-cfe.png"
-    },
-    {
-      name: "Project Management Professional (PMP)",
-      issuer: "PMI",
-      year: "2023",
-      logo: "pmi-pmp.png"
+      name: "Lean Six Sigma Yellow Belt",
+      issuer: "IASSC, United State",
+      year: "2022"
     },
     {
       name: "COBIT 5 Foundation",
-      issuer: "ISACA",
-      year: "2018",
-      logo: "isaca-cobit5.png"
+      issuer: "PeopleCert",
+      year: "2018"
     }
   ];
 
@@ -70,13 +57,6 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center"
             >
-              <Image
-                src={`/logos/${cert.logo}`}
-                alt={cert.name}
-                width={96}
-                height={96}
-                className="w-24 h-24 object-contain mx-auto mb-4"
-              />
               <h3 className="text-lg font-semibold text-primary dark:text-accent mb-2">{cert.name}</h3>
               <p className="text-accent font-medium mb-1">{cert.issuer}</p>
               <p className="text-sm text-gray-600 dark:text-gray-400">{cert.year}</p>
