@@ -86,7 +86,6 @@ const Contact = () => {
           </div>
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-primary dark:text-accent mb-4">Get in Touch</h3>
               <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
                 <a href="mailto:emmanuelilesanmi36@gmail.com" className="flex items-center space-x-2 text-accent hover:underline">
                   <span>📧</span>
