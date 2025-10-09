@@ -9,7 +9,7 @@ const Experience = () => {
   const experiences = [
     {
       title: "Senior ICFR/SOX IT Auditor",
-      company: "TD Bank",
+      company: "TD Bank, Canada",
       period: "Jan 2025 – Present",
       icon: "🏦",
       description: "Support ICFR/SOX audit planning process while ensuring the completion of appropriate programs and risk assessments to identify key risks and opportunities to mitigate those risks.",

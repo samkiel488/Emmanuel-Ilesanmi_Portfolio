@@ -1,2 +1,2 @@
-- [ ] Fix profile pic src: Change back to /profile_pic.jpeg since profile.jpg doesn't exist.
-- [ ] Increase hero section spacing: Add more margin between text and image for better visual gap.
+- [x] Fix profile pic src: Change back to /profile_pic.jpeg since profile.jpg doesn't exist.
+- [x] Increase hero section spacing: Add more margin between text and image for better visual gap.
