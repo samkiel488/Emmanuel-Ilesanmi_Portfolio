@@ -1,2 +1,2 @@
 - [x] Update Hero.tsx: Remove paragraph and "Contact Me" button, replace headings with four new lines (IT Audit, IT Risk Management, Cybersecurity Assurance, ICFR/SOX Audit) each with same font styling.
-- [ ] Update Certifications.tsx: Replace certifications array with new list, remove logo Image from cards since new logos not provided.
+- [x] Update Certifications.tsx: Replace certifications array with new list, remove logo Image from cards since new logos not provided.
