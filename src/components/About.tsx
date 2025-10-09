@@ -19,7 +19,7 @@ const About = () => {
             I am a dedicated IT Audit and Cybersecurity professional with over 5 years of experience in safeguarding organizational assets through comprehensive risk management and control evaluation.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mt-6">
-            My expertise spans IT governance, risk assessment, compliance frameworks (COBIT, COSO, NIST, ISO 27001), and IIA Standards. I specialize in conducting thorough audits, implementing robust controls, and providing strategic recommendations to enhance cybersecurity posture.
+            My expertise spans IT governance, risk assessment, compliance frameworks (COBIT, NIST, COSO, ISO 27001), and IIA Standards. I specialize in conducting thorough audits, implementing robust controls, and providing strategic recommendations to enhance cybersecurity posture.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mt-6">
             Passionate about staying ahead of emerging threats, I continuously update my knowledge in cybersecurity trends, regulatory requirements, and technological advancements to deliver value-driven audit services.
