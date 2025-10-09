@@ -27,74 +27,60 @@ const Contact = () => {
       viewport={{ once: true }}
       className="py-20 bg-white dark:bg-[#001f3f]"
     >
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-12 space-y-10">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12 lg:px-12 space-y-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-primary dark:text-accent text-center mb-12">Contact Me</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-gray-800 dark:text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
-                  placeholder="Your full name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-800 dark:text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
-                  placeholder="your.email@example.com"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-800 dark:text-gray-300 mb-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100 h-32"
-                  placeholder="Tell me about your project or inquiry..."
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition"
-              >
-                Send Message
-              </button>
-            </form>
-            {submitted && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg"
-              >
-                Message sent successfully!
-              </motion.div>
-            )}
+            <label className="block text-gray-800 dark:text-gray-300 mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
+              placeholder="Your full name"
+              required
+            />
           </div>
-          <div className="space-y-6">
-            <div>
-              <p className="text-base sm:text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
-                <a href="mailto:emmanuelilesanmi36@gmail.com" className="flex items-center space-x-2 text-accent hover:underline">
-                  <span>📧</span>
-                  <span>Email</span>
-                </a>
-              </p>
-            </div>
+          <div>
+            <label className="block text-gray-800 dark:text-gray-300 mb-2">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100"
+              placeholder="your.email@example.com"
+              required
+            />
           </div>
-        </div>
+          <div>
+            <label className="block text-gray-800 dark:text-gray-300 mb-2">Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-800 text-gray-800 dark:text-gray-100 h-32"
+              placeholder="Tell me about your project or inquiry..."
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition"
+          >
+            Send Message
+          </button>
+        </form>
+        {submitted && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg"
+          >
+            Message sent successfully!
+          </motion.div>
+        )}
       </div>
     </motion.section>
   );
