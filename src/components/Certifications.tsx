@@ -15,31 +15,31 @@ const Certifications = () => {
       name: "Information System Security Professional (CISSP)",
       issuer: "ISC2 United States",
       year: "2023",
-      logo: "isc2.png"
+      logo: "cissp-logo-1.webp"
     },
     {
       name: "Information Systems Auditor (CISA)",
       issuer: "ISACA, United States",
       year: "2018",
-      logo: "isaca.png"
+      logo: "cisa.png"
     },
     {
       name: "ISO 27001 (ISMS) Lead Auditor",
       issuer: "",
       year: "2019",
-      logo: "iso.png"
+      logo: ""
     },
     {
       name: "Lean Six Sigma Yellow Belt",
       issuer: "IASSC, United State",
       year: "2022",
-      logo: "iassc.png"
+      logo: ""
     },
     {
       name: "COBIT 5 Foundation",
       issuer: "PeopleCert",
       year: "2018",
-      logo: "peoplecert.png"
+      logo: ""
     }
   ];
 
@@ -64,13 +64,15 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center"
             >
-              <Image
-                src={`/logos/${cert.logo}`}
-                alt={cert.name}
-                width={96}
-                height={96}
-                className="w-24 h-24 object-contain mx-auto mb-4"
-              />
+              {cert.logo && (
+                <Image
+                  src={`/logos/${cert.logo}`}
+                  alt={cert.name}
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 object-contain mx-auto mb-4"
+                />
+              )}
               <h3 className="text-lg font-semibold text-primary dark:text-accent mb-2">{cert.name}</h3>
               <p className="text-accent font-medium mb-1">{cert.issuer}</p>
               <p className="text-sm text-gray-600 dark:text-gray-400">{cert.year}</p>
