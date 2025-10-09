@@ -1,82 +1,87 @@
 "use client";
 
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+const formSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Valid email required"),
+  message: z.string().min(5, "Message is too short"),
+});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+type FormData = z.infer<typeof formSchema>;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+export default function ContactForm() {
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = async (data: FormData) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      toast.success("Message sent successfully!");
+      reset();
+    } else {
+      toast.error("Failed to send message. Try again later.");
+    }
   };
 
   return (
-    <motion.div
+    <motion.section
+      id="contact"
+      className="flex flex-col items-center justify-center h-screen px-6 md:px-12 lg:px-24 text-center"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="space-y-6"
     >
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-700 text-primary dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-accent focus:border-transparent"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-700 text-primary dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-accent focus:border-transparent"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg bg-secondary dark:bg-gray-700 text-primary dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-accent focus:border-transparent h-32"
-            required
-          />
-        </div>
+      <Toaster position="top-center" />
+      <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">Contact Me</h2>
+      <p className="max-w-lg text-gray-600 dark:text-gray-400 mb-8">
+        Have an inquiry or want to connect? Send a message directly below.
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md space-y-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          {...register("name")}
+          className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#daa520]"
+        />
+        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          {...register("email")}
+          className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#daa520]"
+        />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+
+        <textarea
+          placeholder="Your Message"
+          rows={5}
+          {...register("message")}
+          className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#daa520]"
+        />
+        {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
+
         <button
           type="submit"
-          className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          disabled={isSubmitting}
+          className="w-full bg-[#daa520] hover:bg-[#c19a3f] text-white font-medium py-3 rounded-lg flex items-center justify-center transition-all"
         >
-          Send Message
+          {isSubmitting ? "Sending..." : (<><Send size={18} className="mr-2" /> Send Message</>)}
         </button>
       </form>
-      {submitted && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-4 p-4 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200 rounded-lg"
-        >
-          Message sent successfully!
-        </motion.div>
-      )}
-    </motion.div>
+    </motion.section>
   );
-};
-
-export default ContactForm;
+}
