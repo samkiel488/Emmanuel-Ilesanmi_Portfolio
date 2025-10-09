@@ -27,19 +27,19 @@ const Certifications = () => {
       name: "ISO 27001 (ISMS) Lead Auditor",
       issuer: "",
       year: "2019",
-      logo: ""
+      logo: "isms-banner.png"
     },
     {
       name: "Lean Six Sigma Yellow Belt",
       issuer: "IASSC, United State",
       year: "2022",
-      logo: ""
+      logo: "IASSC-Certification-Badge-Yellow-Belt-250x250.png"
     },
     {
       name: "COBIT 5 Foundation",
       issuer: "PeopleCert",
       year: "2018",
-      logo: ""
+      logo: "Cobit.png"
     }
   ];
 

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
@@ -9,6 +11,7 @@ import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +25,7 @@ const Navbar = () => {
 
   const closeMenu = () => setIsOpen(false);
 
-  const menuItems = ["About", "Skills", "Experience", "Certifications", "Awards", "Contact"];
+  const menuItems = ["About", "Skills", "Experience", "Projects", "Certifications", "Awards", "Contact"];
 
   return (
     <>
@@ -37,17 +40,41 @@ const Navbar = () => {
               Emmanuel Ilesanmi
             </div>
             <div className="hidden md:flex space-x-8">
-              {["Home", "About", "Experience", "Certifications", "Education", "Awards", "Contact"].map((item) => (
-                <Link
-                  key={item}
-                  to={item.toLowerCase()}
-                  smooth={true}
-                  duration={500}
-                  className="text-secondary hover:text-accent cursor-pointer"
-                >
-                  {item}
-                </Link>
-              ))}
+              {["Home", "About", "Experience", "Projects", "Certifications", "Education", "Awards", "Contact"].map((item) => {
+                if (item === "Home") {
+                  return (
+                    <Link
+                      key={item}
+                      href="/"
+                      className={`text-secondary hover:text-accent ${pathname === "/" ? "text-accent" : ""}`}
+                    >
+                      {item}
+                    </Link>
+                  );
+                } else if (item === "Projects") {
+                  return (
+                    <Link
+                      key={item}
+                      href="/projects"
+                      className={`text-secondary hover:text-accent ${pathname === "/projects" ? "text-accent" : ""}`}
+                    >
+                      {item}
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <ScrollLink
+                      key={item}
+                      to={item.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      className="text-secondary hover:text-accent cursor-pointer"
+                    >
+                      {item}
+                    </ScrollLink>
+                  );
+                }
+              })}
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
@@ -72,18 +99,33 @@ const Navbar = () => {
             className="fixed top-0 right-0 h-full w-64 bg-primary shadow-lg z-40 md:hidden"
           >
             <div className="flex flex-col pt-20 px-6 space-y-6">
-              {menuItems.map((item) => (
-                <Link
-                  key={item}
-                  to={item.toLowerCase()}
-                  smooth={true}
-                  duration={500}
-                  onClick={closeMenu}
-                  className="text-secondary hover:text-accent cursor-pointer text-lg"
-                >
-                  {item}
-                </Link>
-              ))}
+              {menuItems.map((item) => {
+                if (item === "Projects") {
+                  return (
+                    <Link
+                      key={item}
+                      href="/projects"
+                      onClick={closeMenu}
+                      className={`text-secondary hover:text-accent text-lg ${pathname === "/projects" ? "text-accent" : ""}`}
+                    >
+                      {item}
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <ScrollLink
+                      key={item}
+                      to={item.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      onClick={closeMenu}
+                      className="text-secondary hover:text-accent cursor-pointer text-lg"
+                    >
+                      {item}
+                    </ScrollLink>
+                  );
+                }
+              })}
             </div>
           </motion.div>
         )}
