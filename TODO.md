@@ -1,2 +1,3 @@
-- [x] Fix profile pic src: Change back to /profile_pic.jpeg since profile.jpg doesn't exist.
-- [x] Increase hero section spacing: Add more margin between text and image for better visual gap.
+- [x] Refactor Hero.tsx for mobile responsiveness: swap image and text order, center on mobile, add responsive sizing, update text structure, add contact button, change animations to whileInView, preserve background.
+- [x] Remove name and contact button from Hero.tsx, improve readability of the text below.
+- [x] Change text color in Hero.tsx to accent (orange).
